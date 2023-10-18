@@ -1,7 +1,7 @@
 # Day 1 is focused on input and output
 
 #1. Create a greeting for your program.
-print("Good morning/day/night sir/madam")
+print("Good morning/day/night sir/madam.")
 
 #2. Ask the user for the city that they grew up in.
 city = input("What is the name of the city you grew up in?\n")
