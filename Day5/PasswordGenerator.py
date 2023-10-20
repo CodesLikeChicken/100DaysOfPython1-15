@@ -19,30 +19,18 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 password = []
 
 # Generate random letters
-number_of_letters = len(letters)
 for _ in range(nr_letters):
-    index = random.randint(0, number_of_letters - 1)
-    password.append(letters[index])
-
-# Generate random numbers
-number_of_numbers = len(numbers)
-for _ in range(nr_numbers):
-    index = random.randint(0, number_of_numbers - 1)
-    password.append(numbers[index])
+    password.append(random.choice(letters))
 
 # Generate random symbols
-number_of_symbols = len(symbols)
+for _ in range(nr_symbols):
+    password.append(random.choice(symbols))
+
+# Generate random numbers
 for _ in range(nr_numbers):
-    index = random.randint(0, number_of_symbols - 1)
-    password.append(symbols[index])
+    password.append(random.choice(numbers))
 
 # Randomize order
-password_length = len(password)
-for index in range(password_length):
-    swap_index = random.randint(0, password_length - 1)
-    if not swap_index == index:
-        temp = password[index]
-        password[index] = password[swap_index]
-        password[swap_index] = temp
+random.shuffle(password)
 
 print(''.join(password))
