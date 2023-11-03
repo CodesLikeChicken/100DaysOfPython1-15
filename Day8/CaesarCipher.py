@@ -12,11 +12,18 @@ def caesar(text, shift, direction):
     cyphered_text = ""
 
     first_letter_ord = ord('a')
+    last_letter_ord = ord('z')
+    num_of_letters = last_letter_ord - first_letter_ord
 
     for text_index in range(len(text)):
         orig_char_ord = ord(text[text_index])
+
+        if orig_char_ord < first_letter_ord or orig_char_ord > last_letter_ord:
+            cyphered_text += chr(orig_char_ord)
+            continue
+
         original_letter_index = orig_char_ord - first_letter_ord
-        new_letter_index = (original_letter_index + shift) % 26
+        new_letter_index = (original_letter_index + shift) % num_of_letters
         new_char_ord = new_letter_index + first_letter_ord
         cyphered_text += chr(new_char_ord)
 
